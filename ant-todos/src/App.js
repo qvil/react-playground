@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 // Ant Design
 import { Card } from 'antd';
 // Custom
-import { TodoInput, TodoList } from 'components';
 import './App.css';
+import { TodoInput, TodoList } from 'components';
 
 const styles = {
   root: {
