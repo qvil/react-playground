@@ -3,6 +3,7 @@
 
 ## [Demo](https://codesandbox.io/s/github/qvil/react-playground/tree/master/ant-todos)
 [![Edit ant-todos](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/qvil/react-playground/tree/master/ant-todos)
+![demo.gif](demo.gif)
 
 <!-- ![demo](src/demo.png) -->
 
@@ -25,5 +26,5 @@ npm start
 | >= 11 | >= 14 | >= 45 | >= 49 | >= 10 |
 
 
-## License
+## [License]((https://github.com/qvil/react-playground/blob/master/LICENSE))
 [MIT](https://github.com/qvil/react-playground/blob/master/LICENSE)

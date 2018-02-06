@@ -3,12 +3,6 @@ import React, { Component } from 'react';
 import { List } from 'antd';
 import { Radio } from 'antd';
 
-const mockData = [
-  { id: 0, text: "Play", completed: false },
-  { id: 1, text: "Love", completed: false },
-  { id: 2, text: "Talk", completed: true },
-];
-
 const styles = {
   root: {
     // display: 'flex',
@@ -18,28 +12,16 @@ const styles = {
 };
 
 class TodoList extends Component {
-  state = {
-    checked: false,
-    mockData: mockData,
-  }
 
   handleChecked = id => () => {
-    let targetIndex;
-    // let target = mockData.map((value, index) => {
-    //   return value.id === id ? index : false
-    // });
-    for (let index = 0; index < mockData.length; index++) {
-      const element = mockData[index];
-      if (element.id === id) {
-        targetIndex = index
-      }
-    }
+    const { toggleTodo } = this.props;
 
-    console.log(targetIndex, this.state.mockData[targetIndex].completed)
-    this.setState({ [mockData[targetIndex].completed]: !this.state.mockData[targetIndex].completed })
+    toggleTodo(id);
   };
 
   render() {
+    const { todos } = this.props;
+
     return (
       <div style={styles.root}>
         <List
@@ -47,8 +29,16 @@ class TodoList extends Component {
           header={<div>Header</div>}
           footer={<div>Footer</div>}
           bordered
-          dataSource={mockData}
-          renderItem={item => (<List.Item onClick={this.handleChecked(item.id)}><Radio checked={this.state.checked} />{item.text}</List.Item>)}
+          dataSource={todos}
+          renderItem={item => (
+            <List.Item>
+              <Radio
+                onClick={this.handleChecked(item.id)}
+                checked={item.completed}
+              />
+              <span style={{ textDecoration: item.completed ? 'line-through' : 'none' }}>{item.text}</span>
+            </List.Item>
+          )}
         />
       </div>
     );

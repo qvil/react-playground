@@ -22,20 +22,41 @@ const styles = {
 };
 
 class TodoInput extends Component {
-  handleAdd = () => {
-    console.log("Handle Add");
+  state = {
+    text: "",
   };
 
+  handleAdd = () => {
+    const { addTodo } = this.props;
+    const { text } = this.state;
+
+    if (text.trim() === "") {
+      return;
+    }
+
+    addTodo(text.trim());
+    this.setState({ text: "" });
+  };
+
+  handleChange = event => {
+    this.setState({ text: event.target.value });
+  }
+
   render() {
+    const { text } = this.state;
+    const { handleAdd, handleChange } = this;
+
     return (
       <div style={styles.root}>
         {/* <div style={styles.columnDiv}> */}
-          <Input
-            style={styles.input}
-            placeholder="Add todo here"
-            onPressEnter={this.handleAdd}
-          />
-          <Button type="primary" onClick={this.handleAdd}>Add</Button>
+        <Input
+          style={styles.input}
+          placeholder="Add todo here"
+          onPressEnter={handleAdd}
+          value={text}
+          onChange={handleChange}
+        />
+        <Button type="primary" onClick={handleAdd}>Add</Button>
         {/* </div> */}
       </div>
     );

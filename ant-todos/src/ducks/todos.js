@@ -1,9 +1,15 @@
 // Action Types
 const ADD_TODO = "ant-todos/todos/ADD_TODO";
+const TOGGLE_TODO = "ant-todos/todos/TOGGLE_TODO";
 
-export const addTodo = (text) => ({
+export const addTodo = text => ({
   type: ADD_TODO,
   text
+});
+
+export const toggleTodo = id => ({
+  type: TOGGLE_TODO,
+  id
 });
 
 const initialState = [
@@ -20,6 +26,12 @@ const todos = (state = initialState, action) => {
           text: action.text
         }
       ]
+    case TOGGLE_TODO:
+      return state.map(todo =>
+        todo.id === action.id
+          ? { ...todo, completed: !todo.completed }
+          : todo
+      );
     default:
       return state;
   }
