@@ -17,15 +17,16 @@ const styles = {
 
 class App extends Component {
   render() {
+    const { todos, actions } = this.props;
+    console.log(todos, actions);
     return (
       <div className="App" style={styles.root}>
         <Card
           title={<TodoInput />}
           style={{ width: 600 }}
-          // bodyStyle={{ padding: 0 }}
-          // hoverable
+        // bodyStyle={{ padding: 0 }}
+        // hoverable
         >
-
           <TodoList />
         </Card>
       </div >
