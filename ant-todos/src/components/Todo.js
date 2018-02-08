@@ -21,9 +21,14 @@ const styles = {
 };
 
 class Todo extends Component {
-  state = {
-    editable: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      editable: false,
+      text: this.props.item.text,
+    };
+  }
+  
   handleChecked = id => () => {
     const { toggleTodo } = this.props;
 
@@ -31,20 +36,28 @@ class Todo extends Component {
   };
 
   handleChange = event => {
-    this.setState({ temp: event.target.value });
+    this.setState({ text: event.target.value });
   }
 
-  handleClick = name => () => {
-    console.log(name)
-    this.setState({ editable: !name });
-    // this.setState({ editable: name === "Edit" ? true : false });
+  saveTodo = id => () => {
+    const { modifyTodo } = this.props;
+    const { editable, text } = this.state;
+
+    if (!editable) {
+      this.setState({ editable: true })
+      return;
+    }
+    
+    modifyTodo(id, text);
+    this.setState({ editable: false });
   }
 
   render() {
     const { item } = this.props;
-    const { handleChecked, handleChange, handleClick } = this;
-    const { editable } = this.state;
-
+    const { handleChecked, handleChange, saveTodo } = this;
+    const { editable, text } = this.state;
+    
+    // console.log(this.props.todos);
 
     return (
       <div
@@ -58,21 +71,21 @@ class Todo extends Component {
         {
           editable
             ? <Input
-              value={item.text}
-              // size="small"
+              value={text}
               onChange={handleChange}
-              onBlur={() => this.setState({ editable: false })}
+              // onPressEnter={() => console.log(1111)}
+              onPressEnter={saveTodo(item.id)}
+              // onBlur={saveTodo(item.id)}
             />
             : <span
               style={{ flex: 1, textDecoration: item.completed ? 'line-through' : 'none' }}
               onClick={() => this.setState({ editable: true })}
             >
-              {item.text}
+              {text}
             </span>
         }
         <Button
-          onClick={handleClick(editable)}
-          // value={}
+          onClick={saveTodo(item.id)}
           style={styles.button}
         >
           {editable ? "Save" : "Edit"}

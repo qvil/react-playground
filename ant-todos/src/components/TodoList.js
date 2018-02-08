@@ -14,7 +14,7 @@ const styles = {
 
 class TodoList extends Component {
   render() {
-    const { todos, toggleTodo } = this.props;
+    const { todos, toggleTodo, modifyTodo } = this.props;
 
     return (
       <div style={styles.root}>
@@ -29,6 +29,7 @@ class TodoList extends Component {
               <Todo
                 item={item}
                 toggleTodo={toggleTodo}
+                modifyTodo={modifyTodo}
               />
             </List.Item>
           )}

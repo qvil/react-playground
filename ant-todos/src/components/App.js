@@ -32,6 +32,7 @@ class App extends Component {
           <TodoList
             todos={todos}
             toggleTodo={actions.toggleTodo}
+            modifyTodo={actions.modifyTodo}
           />
         </Card>
       </div >
