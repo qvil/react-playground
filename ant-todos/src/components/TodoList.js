@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 // And Design
 import { List } from 'antd';
-import { Radio } from 'antd';
+// Custom
+import { Todo } from 'components';
 
 const styles = {
   root: {
@@ -12,15 +13,8 @@ const styles = {
 };
 
 class TodoList extends Component {
-
-  handleChecked = id => () => {
-    const { toggleTodo } = this.props;
-
-    toggleTodo(id);
-  };
-
   render() {
-    const { todos } = this.props;
+    const { todos, toggleTodo } = this.props;
 
     return (
       <div style={styles.root}>
@@ -31,12 +25,11 @@ class TodoList extends Component {
           bordered
           dataSource={todos}
           renderItem={item => (
-            <List.Item>
-              <Radio
-                onClick={this.handleChecked(item.id)}
-                checked={item.completed}
+            <List.Item style={{ padding: 0, paddingLeft: 16,}}>
+              <Todo
+                item={item}
+                toggleTodo={toggleTodo}
               />
-              <span style={{ textDecoration: item.completed ? 'line-through' : 'none' }}>{item.text}</span>
             </List.Item>
           )}
         />
