@@ -14,7 +14,7 @@ const styles = {
 
 class TodoList extends Component {
   render() {
-    const { todos, toggleTodo, modifyTodo } = this.props;
+    const { todos, actions } = this.props;
 
     return (
       <div style={styles.root}>
@@ -28,8 +28,9 @@ class TodoList extends Component {
             <List.Item style={{ padding: 0, paddingLeft: 16,}}>
               <Todo
                 item={item}
-                toggleTodo={toggleTodo}
-                modifyTodo={modifyTodo}
+                toggleTodo={actions.toggleTodo}
+                modifyTodo={actions.modifyTodo}
+                removeTodo={actions.removeTodo}
               />
             </List.Item>
           )}

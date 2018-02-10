@@ -28,7 +28,7 @@ class Todo extends Component {
       text: this.props.item.text,
     };
   }
-  
+
   handleChecked = id => () => {
     const { toggleTodo } = this.props;
 
@@ -47,7 +47,7 @@ class Todo extends Component {
       this.setState({ editable: true })
       return;
     }
-    
+
     modifyTodo(id, text);
     this.setState({ editable: false });
   }
@@ -56,13 +56,13 @@ class Todo extends Component {
     const { item } = this.props;
     const { handleChecked, handleChange, saveTodo } = this;
     const { editable, text } = this.state;
-    
+
     // console.log(this.props.todos);
 
     return (
       <div
         style={styles.root}
-        // onFocus={() => this.setState({ editable: true })}
+      // onFocus={() => this.setState({ editable: true })}
       >
         <Radio
           onClick={handleChecked(item.id)}
@@ -75,7 +75,7 @@ class Todo extends Component {
               onChange={handleChange}
               // onPressEnter={() => console.log(1111)}
               onPressEnter={saveTodo(item.id)}
-              // onBlur={saveTodo(item.id)}
+            // onBlur={saveTodo(item.id)}
             />
             : <span
               style={{ flex: 1, textDecoration: item.completed ? 'line-through' : 'none' }}
@@ -89,6 +89,12 @@ class Todo extends Component {
           style={styles.button}
         >
           {editable ? "Save" : "Edit"}
+        </Button>
+        <Button
+          type="danger"
+          onClick={() => this.props.removeTodo(item.id)}
+        >
+          Delete
         </Button>
       </div>
     );

@@ -53,11 +53,16 @@ const todos = (state = initialState, action) => {
       );
     case REMOVE_TODO:
     // Need return
-      return state.map((todo, index) => {
+      return state.splice(state.map((todo, index) => (
         todo.id === action.id
-          ? state.splice(index, 1)
-          : todo
-      });
+          ? index
+          : null
+      )), 1);
+      // return state.map((todo, index) => {
+      //   todo.id === action.id
+      //     ? state.splice(index, 1)
+      //     : todo
+      // });
     default:
       return state;
   }
