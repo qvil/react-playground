@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 // And Design
-import { Input } from 'antd';
-import { Button } from 'antd';
+import { Input, Button } from 'antd';
 
 const styles = {
   root: {
@@ -56,7 +55,12 @@ class TodoInput extends Component {
           value={text}
           onChange={handleChange}
         />
-        <Button type="primary" onClick={handleAdd}>Add</Button>
+        <Button
+          type="primary"
+          icon="plus"
+          onClick={handleAdd}
+          // size="large"
+        />
         {/* </div> */}
       </div>
     );
