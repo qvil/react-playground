@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // Ant Design
 import { Radio, Input, Button } from 'antd';
 
+// const ButtonGroup = Button.Group;
 const styles = {
   root: {
     display: 'flex',
@@ -12,10 +13,10 @@ const styles = {
     flex: 1,
   },
   button: {
-    backgroundColor: '#40c057',
-    color: '#fff',
+    // backgroundColor: '#40c057',
+    // color: '#fff',
     '&:hover': {
-      backgroundColor: '#03f',
+      backgroundColor: '#40c057',
     },
   },
 };
@@ -81,18 +82,20 @@ class Todo extends Component {
               {todo.text}
             </span>
         }
-        <Button
-          onClick={saveTodo(todo.id)}
-          style={styles.button}
-        >
-          {editable ? "Save" : "Edit"}
-        </Button>
-        <Button
-          type="danger"
-          onClick={() => this.props.deleteTodo(todo.id)}
-        >
-          Delete
-        </Button>
+        {/* <ButtonGroup> */}
+          <Button
+            onClick={saveTodo(todo.id)}
+            style={styles.button}
+            icon={editable ? "save" : "edit"}
+            size="large"
+          />
+          <Button
+            type="danger"
+            onClick={() => this.props.deleteTodo(todo.id)}
+            icon="delete"
+            size="large"
+          />
+        {/* </ButtonGroup> */}
       </div>
     );
   }
