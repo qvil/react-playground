@@ -36,7 +36,8 @@ const todos = (state = initialState, action) => {
         ...state,
         {
           id: state.reduce((maxId, todo) => Math.max(maxId, todo.id), -1) + 1,
-          text: action.text
+          text: action.text,
+          completed: false,
         }
       ];
     case TOGGLE_TODO:
