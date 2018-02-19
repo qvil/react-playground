@@ -24,13 +24,11 @@ class TodoList extends Component {
           footer={<div>Footer</div>}
           bordered
           dataSource={todos}
-          renderItem={item => (
+          renderItem={todo => (
             <List.Item style={{ padding: 0, paddingLeft: 16,}}>
               <Todo
-                item={item}
-                toggleTodo={actions.toggleTodo}
-                modifyTodo={actions.modifyTodo}
-                removeTodo={actions.removeTodo}
+                todo={todo}
+                {...actions}
               />
             </List.Item>
           )}

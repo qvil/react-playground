@@ -25,7 +25,6 @@ class Todo extends Component {
     super(props);
     this.state = {
       editable: false,
-      text: this.props.item.text,
     };
   }
 
@@ -35,13 +34,14 @@ class Todo extends Component {
     toggleTodo(id);
   };
 
-  handleChange = event => {
-    this.setState({ text: event.target.value });
+  handleChange = id => event => {
+    this.props.modifyTodo(id, event.target.value);
   }
 
   saveTodo = id => () => {
-    const { modifyTodo } = this.props;
-    const { editable, text } = this.state;
+    const { modifyTodo, todo } = this.props;
+    const { editable } = this.state;
+    const { text } = todo;
 
     if (!editable) {
       this.setState({ editable: true })
@@ -53,11 +53,9 @@ class Todo extends Component {
   }
 
   render() {
-    const { item } = this.props;
+    const { todo } = this.props;
     const { handleChecked, handleChange, saveTodo } = this;
-    const { editable, text } = this.state;
-
-    // console.log(this.props.todos);
+    const { editable } = this.state;
 
     return (
       <div
@@ -65,34 +63,33 @@ class Todo extends Component {
       // onFocus={() => this.setState({ editable: true })}
       >
         <Radio
-          onClick={handleChecked(item.id)}
-          checked={item.completed}
+          onClick={handleChecked(todo.id)}
+          checked={todo.completed}
         />
         {
           editable
             ? <Input
-              value={text}
-              onChange={handleChange}
-              // onPressEnter={() => console.log(1111)}
-              onPressEnter={saveTodo(item.id)}
-            // onBlur={saveTodo(item.id)}
+              value={todo.text}
+              onChange={handleChange(todo.id)}
+              onPressEnter={saveTodo(todo.id)}
+            // onBlur={saveTodo(todo.id)}
             />
             : <span
-              style={{ flex: 1, textDecoration: item.completed ? 'line-through' : 'none' }}
+              style={{ flex: 1, textDecoration: todo.completed ? 'line-through' : 'none' }}
               onClick={() => this.setState({ editable: true })}
             >
-              {text}
+              {todo.text}
             </span>
         }
         <Button
-          onClick={saveTodo(item.id)}
+          onClick={saveTodo(todo.id)}
           style={styles.button}
         >
           {editable ? "Save" : "Edit"}
         </Button>
         <Button
           type="danger"
-          onClick={() => this.props.removeTodo(item.id)}
+          onClick={() => this.props.deleteTodo(todo.id)}
         >
           Delete
         </Button>

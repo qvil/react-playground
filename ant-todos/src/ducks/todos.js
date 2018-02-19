@@ -2,7 +2,7 @@
 const ADD_TODO = "ant-todos/todos/ADD_TODO";
 const TOGGLE_TODO = "ant-todos/todos/TOGGLE_TODO";
 const MODIFY_TODO = "ant-todos/todos/MODIFY_TODO";
-const REMOVE_TODO = "ant-todos/todos/REMOVE_TODO";
+const DELETE_TODO = "ant-todos/todos/DELETE_TODO";
 
 export const addTodo = text => ({
   type: ADD_TODO,
@@ -20,8 +20,8 @@ export const modifyTodo = (id, text) => ({
   text
 });
 
-export const removeTodo = id => ({
-  type: REMOVE_TODO,
+export const deleteTodo = id => ({
+  type: DELETE_TODO,
   id,
 });
 
@@ -51,18 +51,10 @@ const todos = (state = initialState, action) => {
           ? { ...todo, text: action.text }
           : todo
       );
-    case REMOVE_TODO:
-    // Need return
-      return state.splice(state.map((todo, index) => (
-        todo.id === action.id
-          ? index
-          : null
-      )), 1);
-      // return state.map((todo, index) => {
-      //   todo.id === action.id
-      //     ? state.splice(index, 1)
-      //     : todo
-      // });
+    case DELETE_TODO:
+      return state.filter(todo =>
+        todo.id !== action.id
+      )
     default:
       return state;
   }
