@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // And Design
 import { List } from 'antd';
 // Custom
-import { Todo } from 'components';
+import { Todo, Filter } from 'components';
 
 const styles = {
   root: {
@@ -20,8 +20,8 @@ class TodoList extends Component {
       <div style={styles.root}>
         <List
           size="small"
-          header={<div>Header</div>}
-          footer={<div>Footer</div>}
+          // header={<div>Header</div>}
+          footer={<Filter />}
           bordered
           dataSource={todos}
           renderItem={todo => (
