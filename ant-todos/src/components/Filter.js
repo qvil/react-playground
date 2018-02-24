@@ -2,18 +2,33 @@ import React, { Component } from 'react';
 
 const styles = {
   root: {
-    color: '#00f',
+    display: 'flex',
+    justifyContent: 'center',
   },
   span: {
-    // color: '#00f',
+    color: '#00f',
   },
+  hoverSpan: {
+    color: '#00f',
+    cursor: 'pointer',
+  }
 };
 
 class Filter extends Component {
+  state = {
+    hover: false,
+  };
+
   render() {
+    const { hover } = this.state;
+
     return (
       <div style={styles.root}>
-        <span style={styles.span}>Filter</span>
+        <span style={hover ? styles.hoverSpan : styles.span}
+          onMouseOver={() => this.setState({ hover: true })}
+        >
+          Show completed item
+        </span>
       </div>
     );
   }
