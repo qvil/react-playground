@@ -17,7 +17,7 @@ const styles = {
 
 class App extends Component {
   render() {
-    const { todos, actions } = this.props;
+    const { todos, actions, filter, setFilter } = this.props;
 
     return (
       <div className="App" style={styles.root}>
@@ -32,6 +32,8 @@ class App extends Component {
           <TodoList
             todos={todos}
             actions={actions}
+            filter={filter}
+            setFilter={setFilter}
           />
         </Card>
       </div >

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { List } from 'antd';
 // Custom
 import { Todo, Filter } from 'components';
+import { SHOW_ALL } from 'ducks/filter';
 
 const styles = {
   root: {
@@ -18,19 +19,23 @@ const styles = {
 
 class TodoList extends Component {
   render() {
-    const { todos, actions } = this.props;
+    const { todos, actions, filter, setFilter } = this.props;
 
     return (
       <div style={styles.root}>
         <List
           size="small"
           // header={<div>Header</div>}
-          footer={<Filter />}
+          footer={<Filter filter={filter} setFilter={setFilter} />}
           bordered
           dataSource={todos}
           renderItem={todo => (
-            <List.Item style={styles.listItem}>
-            {/* <List.Item style={{ display: todo.completed ? 'none' : '' }}> */}
+            <List.Item
+              style={{
+                ...styles.listItem,
+                display: filter !== SHOW_ALL && todo.completed ? 'none' : ''
+              }}>
+              {/* <List.Item style={{ display: todo.completed ? 'none' : '' }}> */}
               <Todo
                 todo={todo}
                 {...actions}

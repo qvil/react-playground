@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import {
+  SHOW_ALL,
+  SHOW_ACTIVE,
+  // SHOW_COMPLETED
+} from 'ducks/filter';
 
 const styles = {
   root: {
@@ -20,14 +25,18 @@ class Filter extends Component {
   };
 
   render() {
+    const { filter, setFilter } = this.props;
     const { hover } = this.state;
 
     return (
-      <div style={styles.root}>
+      <div
+        style={styles.root}
+        onClick={() => setFilter(filter === SHOW_ALL ? SHOW_ACTIVE : SHOW_ALL)}
+      >
         <span style={hover ? styles.hoverSpan : styles.span}
           onMouseOver={() => this.setState({ hover: true })}
         >
-          Show completed item
+          {filter === SHOW_ALL ? "Hide" : "Show"} completed item
         </span>
       </div>
     );
