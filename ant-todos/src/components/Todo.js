@@ -19,6 +19,14 @@ const styles = {
       backgroundColor: '#40c057',
     },
   },
+  span: {
+    flex: 1,
+  },
+  completedSpan: {
+    flex: 1,
+    textDecoration: 'line-through',
+    color: 'grey',
+  },
 };
 
 class Todo extends Component {
@@ -76,7 +84,7 @@ class Todo extends Component {
             // onBlur={saveTodo(todo.id)}
             />
             : <span
-              style={{ flex: 1, textDecoration: todo.completed ? 'line-through' : 'none' }}
+              style={todo.completed ? styles.completedSpan : styles.span}
               onClick={() => this.setState({ editable: true })}
             >
               {todo.text}

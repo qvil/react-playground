@@ -10,6 +10,10 @@ const styles = {
     flex: 1,
     width: '100%'
   },
+  listItem: {
+    padding: 0,
+    paddingLeft: 16,
+  },
 };
 
 class TodoList extends Component {
@@ -25,7 +29,8 @@ class TodoList extends Component {
           bordered
           dataSource={todos}
           renderItem={todo => (
-            <List.Item style={{ padding: 0, paddingLeft: 16,}}>
+            <List.Item style={styles.listItem}>
+            {/* <List.Item style={{ display: todo.completed ? 'none' : '' }}> */}
               <Todo
                 todo={todo}
                 {...actions}
