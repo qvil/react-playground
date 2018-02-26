@@ -1,3 +1,5 @@
+// Firebase
+import * as firebase from 'firebase';
 // Action Types
 const ADD_TODO = "ant-todos/todos/ADD_TODO";
 const TOGGLE_TODO = "ant-todos/todos/TOGGLE_TODO";
@@ -32,14 +34,13 @@ const initialState = [
 const todos = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO:
-      return [
-        ...state,
-        {
-          id: state.reduce((maxId, todo) => Math.max(maxId, todo.id), -1) + 1,
-          text: action.text,
-          completed: false,
-        }
-      ];
+    // TODO: Change method set -> push
+      firebase.database().ref('todos').set({
+        id: state.reduce((maxId, todo) => Math.max(maxId, todo.id), -1) + 1,
+        text: action.text,
+        completed: false,
+      });
+      return state;
     case TOGGLE_TODO:
       return state.map(todo =>
         todo.id === action.id

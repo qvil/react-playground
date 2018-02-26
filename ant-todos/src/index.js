@@ -19,16 +19,6 @@ var config = {
 };
 firebase.initializeApp(config);
 
-// function addTodoToDB(id, text, completed) {
-//   firebase.database().ref('todos').set({
-//     id,
-//     text,
-//     completed,
-//   });
-// }
-
-// addTodoToDB(0, "Play", false);
-
 const store = createStore(reducer);
 
 ReactDOM.render(
