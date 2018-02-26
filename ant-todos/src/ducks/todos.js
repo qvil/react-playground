@@ -35,12 +35,25 @@ const todos = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO:
     // TODO: Change method set -> push
-      firebase.database().ref('todos').set({
-        id: state.reduce((maxId, todo) => Math.max(maxId, todo.id), -1) + 1,
+      // console.log(firebase.database().ref().push().key);
+      let postData = {
+        // id: state.reduce((maxId, todo) => Math.max(maxId, todo.id), -1) + 1,
         text: action.text,
         completed: false,
-      });
-      return state;
+      };
+      let newPostKey = firebase.database().ref().push().key;
+      let updates = {
+        [`/todos/${newPostKey}`]: postData,
+      };
+
+      return firebase.database().ref().update(updates);
+
+      // firebase.database().ref(`todos/${netPostKey}`).set({
+      //   id: state.reduce((maxId, todo) => Math.max(maxId, todo.id), -1) + 1,
+      //   text: action.text,
+      //   completed: false,
+      // });
+      // return state;
     case TOGGLE_TODO:
       return state.map(todo =>
         todo.id === action.id
