@@ -9,7 +9,8 @@ import * as firebase from 'firebase';
 // Custom
 import reducer from 'ducks';
 
-var config = {
+// Firebase Start
+const config = {
   apiKey: "AIzaSyBaEKUTLA4sd2VakMU3lLQZlfZ1yLH5CPI",
   authDomain: "ant-todos.firebaseapp.com",
   databaseURL: "https://ant-todos.firebaseio.com",
@@ -19,11 +20,14 @@ var config = {
 };
 firebase.initializeApp(config);
 
+const database = firebase.database();
+// Firebase End
+
 const store = createStore(reducer);
 
 ReactDOM.render(
   <Provider store={store}>
-    <AppContainer />
+    <AppContainer database={database} />
   </Provider>,
   document.getElementById('root'));
 registerServiceWorker();

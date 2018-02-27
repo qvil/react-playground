@@ -5,6 +5,7 @@ const ADD_TODO = "ant-todos/todos/ADD_TODO";
 const TOGGLE_TODO = "ant-todos/todos/TOGGLE_TODO";
 const MODIFY_TODO = "ant-todos/todos/MODIFY_TODO";
 const DELETE_TODO = "ant-todos/todos/DELETE_TODO";
+const INIT_TODO = "ant-todos/todos/INIT_TODO";
 
 export const addTodo = text => ({
   type: ADD_TODO,
@@ -27,6 +28,11 @@ export const deleteTodo = id => ({
   id,
 });
 
+export const initTodo = todo => ({
+  type: INIT_TODO,
+  todo,
+});
+
 const initialState = [
   { id: 0, text: "Play JS", completed: false },
 ];
@@ -34,7 +40,7 @@ const initialState = [
 const todos = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO:
-    // TODO: Change method set -> push
+      // TODO: Change method set -> push
       // console.log(firebase.database().ref().push().key);
       let postData = {
         // id: state.reduce((maxId, todo) => Math.max(maxId, todo.id), -1) + 1,
@@ -48,12 +54,12 @@ const todos = (state = initialState, action) => {
 
       return firebase.database().ref().update(updates);
 
-      // firebase.database().ref(`todos/${netPostKey}`).set({
-      //   id: state.reduce((maxId, todo) => Math.max(maxId, todo.id), -1) + 1,
-      //   text: action.text,
-      //   completed: false,
-      // });
-      // return state;
+    // firebase.database().ref(`todos/${netPostKey}`).set({
+    //   id: state.reduce((maxId, todo) => Math.max(maxId, todo.id), -1) + 1,
+    //   text: action.text,
+    //   completed: false,
+    // });
+    // return state;
     case TOGGLE_TODO:
       return state.map(todo =>
         todo.id === action.id
@@ -69,7 +75,10 @@ const todos = (state = initialState, action) => {
     case DELETE_TODO:
       return state.filter(todo =>
         todo.id !== action.id
-      )
+      );
+    case INIT_TODO:
+      return action.todo;
+      // return state;
     default:
       return state;
   }

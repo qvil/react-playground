@@ -5,9 +5,9 @@ import { App } from 'components';
 import * as TodoActions from 'ducks/todos';
 import { setFilter } from 'ducks/filter';
 
-const AppContainer = ({ todos, actions, filter, setFilter }) => {
+const AppContainer = ({ todos, actions, filter, setFilter, database }) => {
   return (
-    <App todos={todos} actions={actions} filter={filter} setFilter={setFilter} />
+    <App todos={todos} actions={actions} filter={filter} setFilter={setFilter} database={database}/>
   );
 };
 

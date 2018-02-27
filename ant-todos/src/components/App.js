@@ -16,6 +16,17 @@ const styles = {
 };
 
 class App extends Component {
+  componentDidMount() {
+    const { actions, database } = this.props;
+
+    var todosRef = database.ref('todos/');
+    todosRef.on('value', snapshot => {
+      // updateStarCount(postElement, snapshot.val());
+      console.log(snapshot.val()) // Data here!!
+      actions.initTodo(snapshot);
+    });
+  }
+
   render() {
     const { todos, actions, filter, setFilter } = this.props;
 
