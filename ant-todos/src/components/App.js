@@ -17,7 +17,7 @@ const styles = {
 
 class App extends Component {
   componentDidMount() {
-    const { actions, database } = this.props;
+    const { actions, database, showLoading } = this.props;
 
     var todosRef = database.ref('todos/');
     todosRef.on('value', snapshot => {
@@ -36,11 +36,12 @@ class App extends Component {
       }
 
       actions.initTodo(dataArray);
+      showLoading();
     });
   }
 
   render() {
-    const { todos, actions, filter, setFilter } = this.props;
+    const { actions } = this.props;
 
     return (
       <div className="App" style={styles.root}>
@@ -52,12 +53,7 @@ class App extends Component {
         // bodyStyle={{ padding: 0 }}
         // hoverable
         >
-          <TodoList
-            todos={todos}
-            actions={actions}
-            filter={filter}
-            setFilter={setFilter}
-          />
+          <TodoList {...this.props} />
         </Card>
       </div >
     );

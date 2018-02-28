@@ -19,7 +19,7 @@ const styles = {
 
 class TodoList extends Component {
   render() {
-    const { todos, actions, filter, setFilter } = this.props;
+    const { todos, actions, filter, setFilter, app } = this.props;
 
     return (
       <div style={styles.root}>
@@ -28,6 +28,7 @@ class TodoList extends Component {
           // header={<div>Header</div>}
           footer={<Filter filter={filter} setFilter={setFilter} />}
           bordered
+          loading={!app.isLoadded}
           dataSource={todos}
           renderItem={todo => (
             <List.Item
