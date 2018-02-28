@@ -21,9 +21,21 @@ class App extends Component {
 
     var todosRef = database.ref('todos/');
     todosRef.on('value', snapshot => {
-      // updateStarCount(postElement, snapshot.val());
-      console.log(snapshot.val()) // Data here!!
-      actions.initTodo(snapshot);
+      let value = snapshot.val();
+      let dataArray = [];
+
+      for (const key in value) {
+        if (value.hasOwnProperty(key)) {
+          const element = value[key];
+          let newData = {
+            id: key,
+            ...element
+          };
+          dataArray.push(newData);
+        }
+      }
+
+      actions.initTodo(dataArray);
     });
   }
 

@@ -34,7 +34,7 @@ export const initTodo = todo => ({
 });
 
 const initialState = [
-  { id: 0, text: "Play JS", completed: false },
+  // { id: 0, text: "Play JS", completed: false },
 ];
 
 const todos = (state = initialState, action) => {
