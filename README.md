@@ -6,12 +6,12 @@ Taesu's react.js playground
 
 - [Ant Todos](ant-todos/README.md)
 - [Lab](lab/README.md)
-- [Simple React](simple-react/README.md)
+- [Simple React](https://github.com/qvil/simple-react)
 
 ## TODO
 
-- [ ]Markdown Parse and Render
-- [ ]Light Styling
+- [ ] Markdown Parse and Render
+- [ ] Light Styling
 
 ## [License](<(https://github.com/qvil/react-playground/blob/master/LICENSE)>)
 
