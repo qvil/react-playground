@@ -1,0 +1,3 @@
+[submodule "simple-react"]
+	path = simple-react
+	url = https://github.com/qvil/simple-react.git

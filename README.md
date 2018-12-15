@@ -6,6 +6,7 @@ Taesu's react.js playground
 
 - [Ant Todos](ant-todos/README.md)
 - [Lab](lab/README.md)
+- [Simple React](simple-react/README.md)
 
 ## TODO
 
