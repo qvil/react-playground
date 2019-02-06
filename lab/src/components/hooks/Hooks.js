@@ -1,11 +1,10 @@
 import React from "react";
-import Example from "../components/hooks/Hooks";
+import Counter from "./Counter";
 
 function Hooks() {
   return (
     <div>
-      <h1>Hooks</h1>
-      <Example />
+      <Counter />
     </div>
   );
 }
