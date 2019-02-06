@@ -1,10 +1,11 @@
 import React from "react";
-import Counter from "./Counter";
+import { Counter, ManyStates } from ".";
 
 function Hooks() {
   return (
     <div>
       <Counter />
+      <ManyStates />
     </div>
   );
 }

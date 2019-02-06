@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Home, Memo, Hooks } from "./routes";
+import { Home, Memo } from "./routes";
+import Hooks from "./components/hooks/Hooks";
 
 class App extends Component {
   render() {
