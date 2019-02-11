@@ -2,9 +2,11 @@
 
 Labortory testing the lastest features.
 
-## v16.6.0
+Congraturation! Now include hooks! 🚀Let's check it out 👉 [Hooks](src/components/hooks)
 
-- [x] [memo](src/components/memo/README.md)
+## v16.8.0
+
+- [x] [memo](src/components/memo)
 - [ ] lazy
 - [ ] contextType
-- [x] [Hooks](src/components/hooks/README.md) (https://reactjs.org/docs/hooks-intro.html) Congratutation! Now we can use Hooks! in React v16.8.0.
+- [x] [Hooks](src/components/hooks) (https://reactjs.org/docs/hooks-intro.html) Congratutation! Now we can use Hooks! in React v16.8.0.
