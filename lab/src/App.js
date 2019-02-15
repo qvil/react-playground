@@ -6,7 +6,7 @@ import Hooks from "./components/hooks/Hooks";
 class App extends Component {
   render() {
     return (
-      <Router>
+      <Router basename="https://qvil.github.io/react-playgound">
         <div>
           <h1>Labotory</h1>
           <nav>
