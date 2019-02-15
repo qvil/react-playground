@@ -15,17 +15,17 @@ class App extends Component {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/memo/">Memo</Link>
+                <Link to="/memo">Memo</Link>
               </li>
               <li>
-                <Link to="/hooks/">Hooks</Link>
+                <Link to="/hooks">Hooks</Link>
               </li>
             </ul>
           </nav>
 
           <Route path="/" exact component={Home} />
-          <Route path="/memo/" component={Memo} />
-          <Route path="/hooks/" component={Hooks} />
+          <Route path="/memo" component={Memo} />
+          <Route path="/hooks" component={Hooks} />
         </div>
       </Router>
     );
