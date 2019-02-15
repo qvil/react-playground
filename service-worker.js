@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/react-playgound/precache-manifest.63ef08a496ce3f30e22d2f9b4c4455c7.js"
+  "/react-playgound/lab/precache-manifest.93e8d22a9bdc7297753b8519bd2cdc54.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/react-playgound/index.html", {
+workbox.routing.registerNavigationRoute("/react-playgound/lab/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });

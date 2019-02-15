@@ -1,11 +1,11 @@
 {
-  "main.js": "/react-playgound/static/js/main.bfa691ea.chunk.js",
-  "main.js.map": "/react-playgound/static/js/main.bfa691ea.chunk.js.map",
-  "static/js/1.97c2f15b.chunk.js": "/react-playgound/static/js/1.97c2f15b.chunk.js",
-  "static/js/1.97c2f15b.chunk.js.map": "/react-playgound/static/js/1.97c2f15b.chunk.js.map",
-  "runtime~main.js": "/react-playgound/static/js/runtime~main.27c8ce4c.js",
-  "runtime~main.js.map": "/react-playgound/static/js/runtime~main.27c8ce4c.js.map",
-  "index.html": "/react-playgound/index.html",
-  "precache-manifest.63ef08a496ce3f30e22d2f9b4c4455c7.js": "/react-playgound/precache-manifest.63ef08a496ce3f30e22d2f9b4c4455c7.js",
-  "service-worker.js": "/react-playgound/service-worker.js"
+  "main.js": "/react-playgound/lab/static/js/main.cb98fd33.chunk.js",
+  "main.js.map": "/react-playgound/lab/static/js/main.cb98fd33.chunk.js.map",
+  "static/js/1.97c2f15b.chunk.js": "/react-playgound/lab/static/js/1.97c2f15b.chunk.js",
+  "static/js/1.97c2f15b.chunk.js.map": "/react-playgound/lab/static/js/1.97c2f15b.chunk.js.map",
+  "runtime~main.js": "/react-playgound/lab/static/js/runtime~main.fe3d9d3d.js",
+  "runtime~main.js.map": "/react-playgound/lab/static/js/runtime~main.fe3d9d3d.js.map",
+  "index.html": "/react-playgound/lab/index.html",
+  "precache-manifest.93e8d22a9bdc7297753b8519bd2cdc54.js": "/react-playgound/lab/precache-manifest.93e8d22a9bdc7297753b8519bd2cdc54.js",
+  "service-worker.js": "/react-playgound/lab/service-worker.js"
 }
