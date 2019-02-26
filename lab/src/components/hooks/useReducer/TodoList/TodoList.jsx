@@ -1,21 +1,6 @@
 import React, { useState, useReducer } from "react";
-
-const ADD_TODO = "ADD_TODO";
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case ADD_TODO:
-      return [
-        ...state,
-        {
-          id: state.length,
-          text: action.text
-        }
-      ];
-    default:
-      return state;
-  }
-};
+import { ADD_TODO } from "./constants";
+import reducer from "./reducer";
 
 const initialState = [{ id: 0, text: "Lean React Hooks!" }];
 
