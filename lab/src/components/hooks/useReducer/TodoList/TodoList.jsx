@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer, useContext } from "react";
 import { ADD_TODO } from "./constants";
 import reducer from "./reducer";
 import { TodoContext } from "./store";
@@ -6,6 +6,8 @@ import { TodoContext } from "./store";
 const initialState = [{ id: 0, text: "Lean React Hooks!" }];
 
 const Todo = React.memo(({ todo }) => {
+  const value = useContext(TodoContext);
+  console.log("TCL: value", value);
   console.log("Todo render!");
   return <li>{todo.text}</li>;
 });
