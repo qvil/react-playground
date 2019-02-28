@@ -22,9 +22,11 @@ export function useFetch(url) {
   const callUrl = async url => {
     try {
       const { data } = await Axios.get(url);
-      // throw Error();
       setPayload(data);
     } catch (error) {
+      const { data } = error.response;
+
+      setPayload(data);
       setError("Error");
     } finally {
       setLoading(false);
