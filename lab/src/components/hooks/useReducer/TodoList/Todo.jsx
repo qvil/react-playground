@@ -1,17 +1,20 @@
-import React, { useState } from "react";
-import { EDIT_TODO } from "./constants";
+import React from "react";
+import { EDIT_TODO, REMOVE_TODO } from "./constants";
 
 const Todo = React.memo(({ todo, dispatch }) => {
-  const [text, setText] = useState(todo.text);
+  console.log("TCL: todo", todo);
+
   const handleChange = ({ target: { value } }) => {
-    setText(value);
+    console.log(todo, value);
     dispatch({ ...todo, type: EDIT_TODO, text: value });
   };
 
   return (
     <div style={{ display: "flex" }}>
-      {`${todo.id + 1}. `}
-      <input type="text" value={text} onChange={handleChange} />
+      <input type="text" value={todo.text} onChange={handleChange} />
+      <button onClick={() => dispatch({ type: REMOVE_TODO, id: todo.id })}>
+        Remove
+      </button>
     </div>
   );
 });

@@ -3,11 +3,11 @@ import { ADD_TODO } from "./constants";
 import reducer from "./reducer";
 import Todo from "./Todo";
 
-const initialState = [{ id: 0, text: "Lean React Hooks!" }];
+// const initialState = [{ id: 0, text: "Lean React Hooks!" }];
 
 const TodoList = () => {
   const [todo, setTodo] = useState("");
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, []);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -27,8 +27,8 @@ const TodoList = () => {
         <button>Add</button>
       </form>
       <ol>
-        {state.map(todo => (
-          <Todo key={todo.id} todo={todo} dispatch={dispatch} />
+        {state.map((todo, index) => (
+          <Todo key={index} todo={todo} dispatch={dispatch} />
         ))}
       </ol>
     </div>
