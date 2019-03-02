@@ -1,16 +1,9 @@
-import React, { useState, useReducer, useContext } from "react";
+import React, { useState, useReducer } from "react";
 import { ADD_TODO } from "./constants";
 import reducer from "./reducer";
-import { TodoContext } from "./store";
+import Todo from "./Todo";
 
-const initialState = [{ id: 0, text: "Lean React Hooks!" }];
-
-const Todo = React.memo(({ todo }) => {
-  const value = useContext(TodoContext);
-  console.log("TCL: value", value);
-  console.log("Todo render!");
-  return <li>{todo.text}</li>;
-});
+const initialState = [{ id: 1, text: "Lean React Hooks!" }];
 
 const TodoList = () => {
   const [todo, setTodo] = useState("");
@@ -23,24 +16,22 @@ const TodoList = () => {
   };
 
   return (
-    <TodoContext.Provider value={1}>
-      <div>
-        <h3>TodoList</h3>
-        <form onSubmit={handleSubmit}>
-          <input
-            placeholder="Add todo"
-            value={todo}
-            onChange={e => setTodo(e.target.value)}
-          />
-          <button>Add</button>
-        </form>
-        <ol>
-          {state.map(todo => (
-            <Todo key={todo.id} todo={todo} />
-          ))}
-        </ol>
-      </div>
-    </TodoContext.Provider>
+    <div>
+      <h3>TodoList</h3>
+      <form onSubmit={handleSubmit}>
+        <input
+          placeholder="Add todo"
+          value={todo}
+          onChange={e => setTodo(e.target.value)}
+        />
+        <button>Add</button>
+      </form>
+      <ol>
+        {state.map(todo => (
+          <Todo key={todo.id} todo={todo} dispatch={dispatch} />
+        ))}
+      </ol>
+    </div>
   );
 };
 

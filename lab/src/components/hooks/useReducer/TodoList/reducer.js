@@ -1,4 +1,4 @@
-import { ADD_TODO } from "./constants";
+import { ADD_TODO, EDIT_TODO } from "./constants";
 
 export default function reducer(state, action) {
   switch (action.type) {
@@ -6,10 +6,14 @@ export default function reducer(state, action) {
       return [
         ...state,
         {
-          id: state.length,
+          id: state.length + 1,
           text: action.text
         }
       ];
+    case EDIT_TODO:
+      console.log("TCL: reducer -> action", action);
+      // return state.filter(todo => todo.id === action.id);
+      return state;
     default:
       return state;
   }
