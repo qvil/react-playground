@@ -1,4 +1,4 @@
-import { ADD_TODO, EDIT_TODO, REMOVE_TODO } from "./constants";
+import { ADD_TODO, REMOVE_TODO } from "./constants";
 
 let index = 0;
 export default function reducer(state, action) {
@@ -11,12 +11,6 @@ export default function reducer(state, action) {
           text: action.text
         }
       ];
-    case EDIT_TODO:
-      state[action.id] = {
-        ...state[action.id],
-        text: action.text
-      };
-      return state;
     case REMOVE_TODO:
       return state.filter(todo => todo.id !== action.id);
     default:
