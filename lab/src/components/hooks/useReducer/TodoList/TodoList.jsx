@@ -3,7 +3,7 @@ import { ADD_TODO } from "./constants";
 import reducer from "./reducer";
 import Todo from "./Todo";
 
-const initialState = [{ id: 1, text: "Lean React Hooks!" }];
+const initialState = [{ id: 0, text: "Lean React Hooks!" }];
 
 const TodoList = () => {
   const [todo, setTodo] = useState("");

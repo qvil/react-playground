@@ -6,13 +6,15 @@ export default function reducer(state, action) {
       return [
         ...state,
         {
-          id: state.length + 1,
+          id: state.length,
           text: action.text
         }
       ];
     case EDIT_TODO:
-      console.log("TCL: reducer -> action", action);
-      // return state.filter(todo => todo.id === action.id);
+      state[action.id] = {
+        ...state[action.id],
+        text: action.text
+      };
       return state;
     default:
       return state;
