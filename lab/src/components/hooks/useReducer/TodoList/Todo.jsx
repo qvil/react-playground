@@ -10,7 +10,7 @@ const Todo = React.memo(({ todo, dispatch }) => {
 
   return (
     <div style={{ display: "flex" }}>
-      <input type="text" value={text} onChange={handleChange} />
+      <input type="text" value={todo.text} onChange={handleChange} />
       <button onClick={() => dispatch({ type: REMOVE_TODO, id: todo.id })}>
         Remove
       </button>
