@@ -3,14 +3,16 @@ import { ADD_TODO } from "./constants";
 import reducer from "./reducer";
 import Todo from "./Todo";
 
-// const initialState = [{ id: 0, text: "Lean React Hooks!" }];
-
 const TodoList = () => {
   const [todo, setTodo] = useState("");
+  // If you want to set initial state refer to below comment.
+  // const initialState = [{ id: 0, text: "Lean React Hooks!" }];
+  // const [state, dispatch] = useReducer(reducer, initialState);
   const [state, dispatch] = useReducer(reducer, []);
 
   const handleSubmit = e => {
     e.preventDefault();
+    if (todo === "") return;
     dispatch({ type: ADD_TODO, text: todo });
     setTodo("");
   };

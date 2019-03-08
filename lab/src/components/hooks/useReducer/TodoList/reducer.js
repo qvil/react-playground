@@ -12,10 +12,7 @@ export default function reducer(state, action) {
         }
       ];
     case REMOVE_TODO:
-      return state.filter(todo => {
-        console.log(todo.id, action.id);
-        return todo.id !== action.id;
-      });
+      return state.filter(todo => todo.id !== action.id);
     default:
       return state;
   }
