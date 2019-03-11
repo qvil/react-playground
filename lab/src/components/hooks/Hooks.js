@@ -3,6 +3,7 @@ import { Route, Link, withRouter } from "react-router-dom";
 import { Counter, ManyStates } from ".";
 import Awesome from "./Awesome";
 import { ReducerCounter, TodoList } from "./useReducer";
+import UseRef from "./UseRef";
 
 function Hooks({ match }) {
   return (
@@ -26,6 +27,9 @@ function Hooks({ match }) {
         <li>
           <Link to={`${match.url}/awesome`}>awesome</Link>
         </li>
+        <li>
+          <Link to={`${match.url}/useref`}>useRef</Link>
+        </li>
       </ul>
       <Route
         path={`${match.url}/use-reducer-counter/`}
@@ -35,6 +39,7 @@ function Hooks({ match }) {
       <Route path={`${match.url}/counter/`} component={Counter} />
       <Route path={`${match.url}/many-states/`} component={ManyStates} />
       <Route path={`${match.url}/awesome/`} component={Awesome} />
+      <Route path={`${match.url}/useref/`} component={UseRef} />
     </>
   );
 }
