@@ -1,0 +1,27 @@
+{
+  "name": "react-playground",
+  "version": "1.0.0",
+  "description": "react.js playground. 🚀",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qvil/react-playground.git"
+  },
+  "keywords": [],
+  "author": "Taesu Hyeon <qvil1127@gmail.com> (https://github.com/qvil)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qvil/react-playground/issues"
+  },
+  "homepage": "https://github.com/qvil/react-playground#readme",
+  "dependencies": {
+    "next": "^8.0.3",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  }
+}
