@@ -1,5 +1,6 @@
 import React from "react";
-import { MemoComponent, NormalComponent } from "../components/memo";
+import MemoComponent from "./MemoComponent";
+import NormalComponent from "./NormalComponent";
 
 class Memo extends React.Component {
   state = {
