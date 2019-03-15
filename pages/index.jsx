@@ -21,6 +21,11 @@ function Home() {
               <a>Hooks</a>
             </Link>
           </li>
+          <li>
+            <Link href="/web-components">
+              <a>Web Components</a>
+            </Link>
+          </li>
         </ul>
       </nav>
     </div>
