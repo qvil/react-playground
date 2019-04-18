@@ -26,6 +26,11 @@ function Home() {
               <a>Web Components</a>
             </Link>
           </li>
+          <li>
+            <Link href="/global-state">
+              <a>Global State</a>
+            </Link>
+          </li>
         </ul>
       </nav>
     </div>
