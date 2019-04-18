@@ -1,36 +1,20 @@
 import Link from "next/link";
 
+const menuList = ["", "memo", "hooks", "web-components", "global-state"];
+
 function Home() {
   return (
     <div>
       <h1>react.js playground. 🚀</h1>
       <nav>
         <ul>
-          <li>
-            <Link href="/">
-              <a>Home</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/memo">
-              <a>Memo</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/hooks">
-              <a>Hooks</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/web-components">
-              <a>Web Components</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/global-state">
-              <a>Global State</a>
-            </Link>
-          </li>
+          {menuList.map((menu, index) => (
+            <li key={index}>
+              <Link href={`/${menu}`}>
+                <a>{menu === "" ? "Home" : menu}</a>
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </div>
