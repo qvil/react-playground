@@ -3,6 +3,7 @@ import Store from "./store";
 import { INCREMENT, DECREMENT } from "./reducer";
 
 const NestedComponent3 = () => {
+  console.log("Rendered NestedComponent3");
   const { store, dispatch } = useContext(Store);
 
   return (
