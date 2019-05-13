@@ -1,18 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-
-export function useInput(defaultValue) {
-  const [value, setValue] = useState(defaultValue);
-
-  const onChange = e => {
-    const {
-      target: { value }
-    } = e;
-    setValue(value);
-  };
-
-  return { value, onChange };
-}
+import useInput from "./useInput";
 
 export function useFetch(url) {
   const [payload, setPayload] = useState(null);
@@ -41,14 +29,15 @@ export function useFetch(url) {
 }
 
 export default function Awesome() {
-  const name = useInput("");
+  const nameValidator = value => value.length <= 5;
+  const name = useInput("", nameValidator);
   console.log("TCL: Awesome -> name", name);
   const { payload, loading, error } = useFetch("https://aws.random.cat/meow");
 
   return (
     <div>
       <h2>Awesome Hooks</h2>
-      <input {...name} placeholder="Check your console" />
+      <input {...name} placeholder="Max length is 5. Check your console" />
       <h3>Cat</h3>
       {loading && <span>Loading cat</span>}
       {!loading && error && <span>{error}</span>}
