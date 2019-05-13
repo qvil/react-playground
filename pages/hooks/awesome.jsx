@@ -29,15 +29,17 @@ export function useFetch(url) {
 }
 
 export default function Awesome() {
-  const nameValidator = value => value.length <= 5;
+  const nameValidator = value => {
+    return value.length <= 5 && !value.includes("/");
+  };
   const name = useInput("", nameValidator);
-  console.log("TCL: Awesome -> name", name);
   const { payload, loading, error } = useFetch("https://aws.random.cat/meow");
 
   return (
     <div>
       <h2>Awesome Hooks</h2>
-      <input {...name} placeholder="Max length is 5. Check your console" />
+      <p>Max length is 5. Don't input '/'</p>
+      <input {...name} placeholder="Max length is 5. Don't input '/'" />
       <h3>Cat</h3>
       {loading && <span>Loading cat</span>}
       {!loading && error && <span>{error}</span>}

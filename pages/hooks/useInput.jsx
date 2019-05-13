@@ -6,7 +6,6 @@ const useInput = (initialValue, validator) => {
     let willUpdate = true;
     if (typeof validator === "function") {
       willUpdate = validator(value);
-      console.log("TCL: onChange -> validator(value)", validator(value));
     }
     if (willUpdate) {
       setValue(value);
