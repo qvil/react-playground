@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -24,5 +25,9 @@
     "next": "^8.0.3",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0",
+    "react-hooks-testing-library": "^0.5.0"
   }
 }
