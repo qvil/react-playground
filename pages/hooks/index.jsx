@@ -2,36 +2,27 @@ import React from "react";
 import Link from "next/link";
 import { withRouter } from "next/router";
 
+const menuList = [
+  "use-reducer",
+  "counter",
+  "many-states",
+  "awesome",
+  "use-ref",
+  "use-tabs"
+];
+
 function Hooks({ router: { pathname } }) {
   return (
     <>
       <h2>Hooks</h2>
       <ul>
-        <li>
-          <Link href={`${pathname}/use-reducer`}>
-            <a>use-reducer</a>
-          </Link>
-        </li>
-        <li>
-          <Link href={`${pathname}/counter`}>
-            <a>counter</a>
-          </Link>
-        </li>
-        <li>
-          <Link href={`${pathname}/many-states`}>
-            <a>many-states</a>
-          </Link>
-        </li>
-        <li>
-          <Link href={`${pathname}/awesome`}>
-            <a>awesome</a>
-          </Link>
-        </li>
-        <li>
-          <Link href={`${pathname}/use-ref`}>
-            <a>useRef</a>
-          </Link>
-        </li>
+        {menuList.map((menu, index) => (
+          <li key={index}>
+            <Link href={`${pathname}/${menu}`}>
+              <a>{menu === "" ? "Home" : menu}</a>
+            </Link>
+          </li>
+        ))}
       </ul>
     </>
   );
