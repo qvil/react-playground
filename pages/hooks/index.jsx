@@ -11,7 +11,8 @@ const menuList = [
   "use-tabs",
   "use-effect",
   "use-title",
-  "middle-ware"
+  "middle-ware",
+  "use-click"
 ];
 
 function Hooks({ router: { pathname } }) {
