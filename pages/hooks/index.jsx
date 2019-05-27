@@ -10,7 +10,8 @@ const menuList = [
   "use-ref",
   "use-tabs",
   "use-effect",
-  "use-title"
+  "use-title",
+  "middle-ware"
 ];
 
 function Hooks({ router: { pathname } }) {
