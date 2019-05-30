@@ -3,7 +3,7 @@ import { createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { Provider } from "react-redux";
 import createSagaMiddleware from "redux-saga";
-import { helloSaga } from "./saga";
+import rootSaga from "./saga";
 import reducer from "./reducer";
 import ReduxApp from "./ReduxApp";
 
@@ -12,7 +12,7 @@ const store = createStore(
   reducer,
   composeWithDevTools(applyMiddleware(sagaMiddleware))
 );
-sagaMiddleware.run(helloSaga);
+sagaMiddleware.run(rootSaga);
 
 const Redux = () => {
   return (

@@ -8,7 +8,11 @@ const ReduxApp = ({ data, actions }) => {
     <div>
       <h2>ReduxApp</h2>
       <p>{`data : ${data}`}</p>
-      <button onClick={() => actions.fetchData({ data: ++data })}>
+      <button
+        onClick={() =>
+          actions.fetchData("https://yts.am/api/v2/list_movies.json")
+        }
+      >
         action
       </button>
     </div>
