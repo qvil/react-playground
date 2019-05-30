@@ -1,6 +1,13 @@
 import Link from "next/link";
 
-const menuList = ["", "memo", "hooks", "web-components", "global-state"];
+const menuList = [
+  "",
+  "memo",
+  "hooks",
+  "web-components",
+  "global-state",
+  "redux"
+];
 
 function Home() {
   return (
