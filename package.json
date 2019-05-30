@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next -p 7777",
     "build": "next build",
+    "now-build": "next build",
     "start": "next start",
     "test": "jest"
   },

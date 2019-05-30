@@ -12,6 +12,7 @@ const menuList = [
   "use-effect",
   "use-title",
   "use-click",
+  "middle-ware",
   "use-axios"
 ];
 
