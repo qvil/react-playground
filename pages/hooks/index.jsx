@@ -11,7 +11,8 @@ const menuList = [
   "use-tabs",
   "use-effect",
   "use-title",
-  "use-click"
+  "use-click",
+  "use-axios"
 ];
 
 function Hooks({ router: { pathname } }) {
