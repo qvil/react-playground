@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import useAxios from "./useAxios";
 
 const UseAxios = () => {
-  const { loading, error, data, refetch } = useAxios({
-    url: "https://yts.am/api/v2/list_movies.json"
-  });
+  const [fetchTrigger, setFetchTrigger] = useState(false);
+  const { loading, error, data } = useAxios(
+    {
+      url: "https://yts.am/api/v2/list_movies.json"
+    },
+    fetchTrigger
+  );
+
+  const refetch = () => {
+    setFetchTrigger(true);
+  };
 
   return (
     <div>

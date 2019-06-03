@@ -19,7 +19,7 @@ export default (options, autoFetch = false, axiosInstance = axios) => {
   const fetchAxios = async () => {
     setState(prev => ({ ...prev, loading: true }));
     try {
-      axiosInstance(options);
+      const data = await axiosInstance(options);
       setState(prev => ({ ...prev, loading: false, data }));
     } catch (error) {
       setState(prev => ({ ...prev, loading: false, error }));
@@ -30,7 +30,7 @@ export default (options, autoFetch = false, axiosInstance = axios) => {
     if (autoFetch) {
       fetchAxios();
     }
-  }, [trigger]);
+  }, [trigger, autoFetch]);
 
   return { ...state, refetch };
 };
