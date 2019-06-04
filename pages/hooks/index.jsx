@@ -13,7 +13,8 @@ const menuList = [
   "use-title",
   "use-click",
   "middle-ware",
-  "use-axios"
+  "use-axios",
+  "use-before-leave"
 ];
 
 function Hooks({ router: { pathname } }) {
