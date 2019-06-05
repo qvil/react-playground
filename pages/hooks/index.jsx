@@ -15,7 +15,8 @@ const menuList = [
   "middle-ware",
   "use-axios",
   "use-before-leave",
-  "use-confirm"
+  "use-confirm",
+  "use-prevent-leave"
 ];
 
 function Hooks({ router: { pathname } }) {
