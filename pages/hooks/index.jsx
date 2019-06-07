@@ -14,6 +14,7 @@ const menuList = [
   "use-click",
   "middle-ware",
   "use-axios",
+  "use-enhanced-axios",
   "use-before-leave",
   "use-confirm",
   "use-prevent-leave"
