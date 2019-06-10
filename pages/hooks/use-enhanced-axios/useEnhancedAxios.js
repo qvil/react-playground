@@ -4,13 +4,13 @@ import axios from "axios";
 const useEnhancedAxios = url => {
   const [state, setState] = useState({ loading: true });
 
-  const render = data => match =>
-    data.loading
+  const render = ({ loading, error, data }) => match =>
+    loading
       ? match.loading()
-      : data.error
-      ? match.error(data.error)
-      : data.data
-      ? match.data(data.data)
+      : error
+      ? match.error(error)
+      : data
+      ? match.data(data)
       : null;
 
   useEffect(() => {
