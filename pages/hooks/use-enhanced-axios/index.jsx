@@ -1,5 +1,5 @@
 import React from "react";
-import useEnhancedAxios from "../use-axios/useEnhancedAxios";
+import useEnhancedAxios from "./useEnhancedAxios";
 
 const useEnhancedAxiosPage = () => {
   const render = useEnhancedAxios(
