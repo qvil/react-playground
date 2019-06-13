@@ -17,7 +17,8 @@ const menuList = [
   "use-enhanced-axios",
   "use-before-leave",
   "use-confirm",
-  "use-prevent-leave"
+  "use-prevent-leave",
+  "use-local-storage"
 ];
 
 const exampleList = ["effect-timing"];
