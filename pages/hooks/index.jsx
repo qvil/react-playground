@@ -20,12 +20,24 @@ const menuList = [
   "use-prevent-leave"
 ];
 
+const exampleList = ["effect-timing"];
+
 function Hooks({ router: { pathname } }) {
   return (
     <>
-      <h2>Hooks</h2>
+      <h1>Hooks</h1>
       <ul>
         {menuList.map((menu, index) => (
+          <li key={index}>
+            <Link href={`${pathname}/${menu}`}>
+              <a>{menu === "" ? "Home" : menu}</a>
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <h2>Example</h2>
+      <ul>
+        {exampleList.map((menu, index) => (
           <li key={index}>
             <Link href={`${pathname}/${menu}`}>
               <a>{menu === "" ? "Home" : menu}</a>
