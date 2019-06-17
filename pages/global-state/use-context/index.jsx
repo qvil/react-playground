@@ -6,9 +6,11 @@ import reducer, {
   DECREMENT
 } from "../use-reducer/reducer";
 import Store from "./store";
+import { applyMiddleware } from "./applyMiddleware";
 
 const UseContext = () => {
-  const [store, dispatch] = useReducer(reducer, initialState);
+  const [store, _dispatch] = useReducer(reducer, initialState);
+  const dispatch = applyMiddleware(_dispatch);
 
   return (
     <Store.Provider value={{ store, dispatch }}>
