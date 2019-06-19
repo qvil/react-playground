@@ -19,7 +19,8 @@ const menuList = [
   "use-confirm",
   "use-prevent-leave",
   "use-local-storage",
-  "use-fadein"
+  "use-fadein",
+  "use-network"
 ];
 
 const exampleList = ["effect-timing"];
