@@ -4,6 +4,10 @@ react.js playground. 🚀
 
 > If you want to React SPA Playground refer to [React Playground SPA](https://github.com/qvil-playground/react-playground-spa)(e.g., lazy, Suspense is not working on SSR)
 
+## Demo
+
+Check [pages](./pages) directory.
+
 ## Install
 
 ```
