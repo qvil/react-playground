@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const useEnhancedAxios = url => {
-  const [state, setState] = useState({ loading: true });
+const useEnhancedAxios = (url, autoFetch = true) => {
+  const [state, setState] = useState({ loading: false });
 
   const render = ({ loading, error, data }) => match =>
     loading
@@ -14,10 +14,13 @@ const useEnhancedAxios = url => {
       : null;
 
   useEffect(() => {
-    axios(url)
-      .then(data => setState({ loading: false, data }))
-      .catch(error => setState({ loading: false, error }));
-  }, [url]);
+    if (autoFetch) {
+      setState({ loading: true });
+      axios(url)
+        .then(data => setState({ loading: false, data }))
+        .catch(error => setState({ loading: false, error }));
+    }
+  }, [url, autoFetch]);
 
   return render(state);
 };
