@@ -1,36 +1,31 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
-export default (options, autoFetch = false, axiosInstance = axios) => {
+export default (options, fetchTrigger = false, axiosInstance = axios) => {
   if (!options.url) return;
 
   const [state, setState] = useState({
-    loading: false,
+    fetchTrigger,
+    loading: fetchTrigger,
     error: null,
     data: null
   });
-  const [trigger, setTrigger] = useState(0);
 
-  const refetch = () => {
-    setState(prev => ({ ...prev, loading: true }));
-    setTrigger(Date.now());
-  };
-
-  const fetchAxios = async () => {
-    setState(prev => ({ ...prev, loading: true }));
+  const fetchAxios = useCallback(async () => {
+    setState({ ...state, loading: true });
     try {
       const data = await axiosInstance(options);
-      setState(prev => ({ ...prev, loading: false, data }));
+      setState({ ...state, loading: false, data });
     } catch (error) {
-      setState(prev => ({ ...prev, loading: false, error }));
+      setState({ ...state, loading: false, error });
     }
-  };
+  }, [options]);
 
   useEffect(() => {
-    if (autoFetch) {
+    if (fetchTrigger) {
       fetchAxios();
     }
-  }, [trigger, autoFetch]);
+  }, [fetchTrigger]);
 
-  return { ...state, refetch };
+  return { ...state };
 };

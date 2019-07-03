@@ -5,7 +5,7 @@ const UseAxios = () => {
   const [fetchTrigger, setFetchTrigger] = useState(false);
   const { loading, error, data } = useAxios(
     {
-      url: "https://yts.am/api/v2/list_movies.json"
+      url: "http://ddragon.leagueoflegends.com/api/versions.json"
     },
     fetchTrigger
   );
@@ -20,6 +20,7 @@ const UseAxios = () => {
       <h2>{loading && "Loading..."}</h2>
       <h2>{!loading && error && `error : ${error}`}</h2>
       <h2>{!loading && data && `status : ${data.status}`}</h2>
+      <p>{!loading && data && `data : ${data.data}`}</p>
       <button onClick={refetch}>refetch</button>
     </div>
   );
