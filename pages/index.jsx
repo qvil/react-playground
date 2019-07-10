@@ -6,7 +6,8 @@ const menuList = [
   "hooks",
   "web-components",
   "global-state",
-  "redux"
+  "redux",
+  "dynamic-route"
 ];
 
 function Home() {
