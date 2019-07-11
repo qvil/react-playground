@@ -15,11 +15,7 @@ const index = () => {
       <button onClick={handleClick}>Toggle localStorage.setItem</button>
       <p>Favorite : {localStorage.getItem("favorite")}</p>
       <h2>Rendered click toggle button</h2>
-      <button
-        onClick={() =>
-          setFavorite("favorite", _favorite === "on" ? "off" : "on")
-        }
-      >
+      <button onClick={() => setFavorite(_favorite === "on" ? "off" : "on")}>
         Toggle useLocalStorage
       </button>
       <p>Favorite : {_favorite}</p>
