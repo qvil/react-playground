@@ -2,7 +2,7 @@ import React from "react";
 import useLocalStorage from "./useLocalStorage";
 
 const index = () => {
-  const [_favorite, setFavorite] = useLocalStorage("favorite");
+  const [_favorite, setFavorite] = useLocalStorage("favorite", "init state!");
   const handleClick = e => {
     const favorite = localStorage.getItem("favorite");
     localStorage.setItem("favorite", favorite === "on" ? "off" : "on");
