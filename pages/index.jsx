@@ -7,7 +7,8 @@ const menuList = [
   "web-components",
   "global-state",
   "redux",
-  "dynamic-route"
+  "dynamic-route",
+  "composition_vs_inheritance"
 ];
 
 function Home() {
