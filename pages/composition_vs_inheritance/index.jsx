@@ -1,12 +1,10 @@
-import React from "react";
-
-const FancyBorder = ({ color, children }) => (
-  <div style={{ border: `1px solid ${color}`, padding: 16 }}>{children}</div>
-);
+import FancyBorder from "./FancyBorder";
+import FancyHeader from "./FancyHeader";
 
 const index = () => {
   return (
     <div>
+      <FancyHeader left={<div>Left</div>} right={<div>Right</div>} />
       <FancyBorder color="red">
         <h1>composition_vs_inheritance</h1>
         <p>Look at the Fancy border!</p>
