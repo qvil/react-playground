@@ -23,7 +23,7 @@ const menuList = [
   "use-network"
 ];
 
-const exampleList = ["effect-timing"];
+const exampleList = ["effect-timing", "multi-effect"];
 
 function Hooks({ router: { pathname } }) {
   return (
